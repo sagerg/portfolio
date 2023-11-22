@@ -9,3 +9,7 @@ In the project directory, you can run:
 - node v20.9.0
 ### TESTING
 - [Jest](https://jestjs.io/docs/tutorial-react)
+- [Funny names](https://www.imagineforest.com/blog/funny-name-generator/)
+### ROADMAP
+- [ ] Make a loading screen
+- [ ] Add links and visuals

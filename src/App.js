@@ -1,6 +1,18 @@
 import React from "react";
+import Home from "./pages/Home";
+import "./assets/app.css"
+import { generateARandomeName } from "../src/utils/nameGenerator";
+
 const App = () => {
-  return <h1>Hello React</h1>;
+  const name = generateARandomeName();
+
+  return (
+    <>
+      <Home 
+        name={name}
+      />
+    </>
+  );
 };
 
 export default App;

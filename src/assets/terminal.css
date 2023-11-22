@@ -1,0 +1,27 @@
+.terminal-wrapper {
+  background-color: #151515;
+  color: #fff;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.terminal-input {
+  display: inline;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.terminal {
+  white-space: pre;
+}
+
+.pre-cursor-text {
+  color: yellow;
+}

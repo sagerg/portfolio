@@ -1,0 +1,28 @@
+{
+  "commands": {
+    "help": "",
+    "about": "",
+    "projects": "",
+    "social-media": "",
+    "github": "https://github.com/sagerg",
+    "linkedin": "https://www.linkedin.com/in/sagegarcia/",
+    "email": "sage.garcia21@gmail.com",
+    "whoami": "",
+    "ls": "",
+    "echo": "",
+    "cat": ""
+  },
+  "funny-names": [
+    "Zoowee Blubberworth",
+    "Flufffy Gloomkins",
+    "Buritt Noseface",
+    "Peaberry Wigglewhistle",
+    "Trashwee Sockborn",
+    "Flapberry Fudgewhistle",
+    "Gummoo Hooperbottom",
+    "Humster Pottyworthy",
+    "Bugby Doodoohill",
+    "Gootu Snotborn",
+    "Peafy Doodoofish"
+  ]
+}
