@@ -4,12 +4,12 @@ import "./assets/app.css"
 import { generateARandomeName } from "../src/utils/nameGenerator";
 
 const App = () => {
-  const name = generateARandomeName();
+  const user = generateARandomeName();
 
   return (
     <>
       <Home 
-        name={name}
+        user={user}
       />
     </>
   );

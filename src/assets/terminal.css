@@ -8,6 +8,7 @@
 }
 
 .terminal-input {
+  caret-color: transparent;
   display: inline;
   border: none;
   outline: none;
@@ -22,6 +23,6 @@
   white-space: pre;
 }
 
-.pre-cursor-text {
+.highlighted-text {
   color: yellow;
 }

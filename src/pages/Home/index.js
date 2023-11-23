@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Loader from "../../components/ui/Loader";
 import Terminal from "./Terminal";
 
-const Home = ({name}) => {
+const Home = ({ user }) => {
   const [terminalHistory, setTerminalHistory] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   return (
-    <Terminal 
-      terminalHistory={terminalHistory}
-      setTerminalHistory={setTerminalHistory}
-      name={name}
-    />
+    <>
+      <Loader 
+        user={user}
+        isLoading={isLoading}
+        setLoading={setLoading}
+      />
+      <Terminal 
+        terminalHistory={terminalHistory}
+        setTerminalHistory={setTerminalHistory}
+        user={user}
+        isLoading={isLoading}
+      />
+    </>
   );
 };
 

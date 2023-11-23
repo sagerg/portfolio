@@ -1,26 +1,26 @@
 import React , { useEffect, useState, useRef } from "react";
 import "../../assets/terminal.css"
 import data from "../../data/data.json";
+import Cursor from "../../components/ui/Cursor"
 
 const Terminal = ({ 
   terminalHistory, 
   setTerminalHistory,
-  name
+  user,
+  isLoading
 }) => {
   const [input, setInput] = useState("");
   const inputRef = useRef();
-
   const preCursorText = (
     <>
-      <span className="pre-cursor-text">
-        {name}
+      <span className="highlighted-text">
+        {user}
       </span>
       <span>
         {"@Sages-MacBook-Pro ~ % "}
       </span>
     </>
   );
-
   const commands = data.commands;
 
   const handleInputOnChange = (e) => {
@@ -28,7 +28,7 @@ const Terminal = ({
     setInput(cmd);
   };
 
-  const generateOutputComponent = (commandList, trimmedInput) => {
+  const generateOutputComponent = (commands, trimmedInput) => {
     let component = undefined;
     switch (trimmedInput) {
       case "help":
@@ -37,10 +37,10 @@ const Terminal = ({
             {"Available commands: "}
             <br />
             {"    "}
-            {commandList.slice(0, commandList.length-1).map((command) => {
+            {commands.slice(0, commands.length-1).map((command) => {
               return (<span><b>{command}</b>, </span>)
             })}
-            {<b>{commandList[commandList.length-1]}</b>}
+            {<b>{commands[commands.length-1]}</b>}
           </>
         );
         break;
@@ -56,10 +56,13 @@ const Terminal = ({
       newHistory = [...newHistory, <>{preCursorText}{input}</>];
       const trimmedInput = input.trim();
       if (trimmedInput !== "") {
-        let output = undefined;
-        const commandList = Object.keys(commands);
-        if (commandList.includes(trimmedInput)) {
-          output = generateOutputComponent(commandList, trimmedInput);
+        let output = <></>;
+        if (commands.includes(trimmedInput)) {
+          if (trimmedInput === "clear") {
+            newHistory = [];
+          } else {
+            output = generateOutputComponent(commands, trimmedInput);
+          }
         } else {
           output = <>{`zsh: command not found: ${trimmedInput}`}</>;
         }
@@ -70,31 +73,48 @@ const Terminal = ({
     }
   };
 
-  useEffect(() => inputRef.current.focus(), []);
+  const getTextWidth = (text) => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    context.font = getComputedStyle(document.body).font;
+    return context.measureText(text).width;
+  };
+
+  useEffect(() => {
+    if (!isLoading) {
+      inputRef.current.focus();
+    }
+  }, [isLoading]);
 
   return (
-    <div 
-      className="terminal-wrapper"
-      onClick={() => inputRef.current.focus()}
-    >
-      <div className="terminal">
-        {terminalHistory.map((text, index) => (
-          <div key={index}>
-            {text}
+    <div>
+      {!isLoading &&
+        <div 
+          className="terminal-wrapper"
+          onClick={() => inputRef.current.focus()}
+        >
+          <div className="terminal">
+            {terminalHistory.map((text, index) => (
+              <div key={index}>
+                {text}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <span>
-        {preCursorText}
-      </span>
-      <input
-        ref={inputRef}
-        className="terminal-input" 
-        type="text"
-        value={input}
-        onChange={handleInputOnChange}
-        onKeyDown={handleOnKeyDown}
-      />
+          <span>
+            {preCursorText}
+          </span>
+          <input
+            ref={inputRef}
+            className="terminal-input" 
+            type="text"
+            style={{"width" : getTextWidth(input)}}
+            value={input}
+            onChange={handleInputOnChange}
+            onKeyDown={handleOnKeyDown}
+          />
+          <Cursor />
+        </div>
+      }
     </div>
   );
 };
