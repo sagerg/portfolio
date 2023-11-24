@@ -3,16 +3,16 @@
     "help",
     "about",
     "projects",
-    "social-media",
+    "social_media",
     "clear",
     "whoami",
-    "cd",
-    "ls",
     "echo",
     "reboot",
-    "restart"
+    "restart",
+    "pwd",
+    "ls"
   ],
-  "funny-names": [
+  "funnyNames": [
     "Zoowee Blubberworth",
     "Flufffy Gloomkins",
     "Buritt Noseface",
@@ -37,7 +37,7 @@
     "Dingbo Roachseed"
   ],
   "bootSequence": [
-    "Boot_Sequence status=started ... =＾● ⋏ ●＾=",
+    "Boot_Sequence status=started...",
     "PMAP: PCID enabled",
     "** Sage's Kernel Version 1.0.0: ",
     "%% Logging in as USER: ",
@@ -45,6 +45,8 @@
     "Unzipping Projects.zip...",
     "Unpacking About.pkg...",
     "Parsing Social_Media_Accounts.csv...",
+    "Loading BongoCat.txt...",
+    "=＾● ⋏ ●＾= ~ hello?",
     "",
     "[OSBoot1]",
     "[OSBoot2]",
@@ -54,5 +56,11 @@
     "",
     "[Boot Complete]",
     ""
-  ]
+  ],
+  "socialMediaAccounts": {
+    "Instagram": "https://www.instagram.com/sage.garcia21/",
+    "GitHub": "https://github.com/sagerg",
+    "LinkedIn": "https://www.linkedin.com/in/sagegarcia/",
+    "Personal Email": "mailto:sage.garcia21@gmail.com"
+  }
 }

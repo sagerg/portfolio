@@ -5,7 +5,10 @@ import {
   IntroText,
   LoginText,
   NotFoundText,
-  HelpText
+  HelpText,
+  AboutText,
+  ProjectsText,
+  SocialMediaText
 } from "../../components/ui/CommandOutputs";
 
 import "../../assets/terminal.css"
@@ -29,44 +32,105 @@ const Terminal = ({ user, isLoading, setLoading }) => {
       case "help":
         component = <HelpText/>;
         break;
+      case "about":
+        component = <AboutText/>;
+        break;
+      case "projects":
+        component = <ProjectsText/>;
+        break;
+      case "social_media":
+        component = <SocialMediaText/>;
+        break;
       default:
         component = <NotFoundText input={trimmedInput}/>;
     }
     return component;
   };
 
+  const handleTerminalInput = () => {
+    let newHistory = [...terminalHistory];
+    let args = [];
+
+    newHistory = [...newHistory, <Prompt user={user} input={input}/>];
+    
+    input
+      .trim()
+      .split(" ")
+      .map((arg, i) => {
+        if (arg !== "") {
+          args.push(arg);
+        }
+    });
+
+    if (args.length > 0) {
+      let output = (
+        <></>
+      );
+      const firstArg = args[0];
+      if (commands.includes(firstArg)) {
+        switch (firstArg) {
+
+          /* commands that handles actions go here */
+
+          case "clear":
+            newHistory = [];
+            break;
+          case "whoami":
+            output = (
+              <span className="highlighted-text">{user}</span>
+            );
+            break;
+          case "pwd":
+            output = (
+              <span>{"/Users/"}{user}</span>
+            );
+            break;
+          case "ls":
+            output = (
+              <span>
+                {"BongoCat.txt    .DS_Store    .npm    .ssh"}
+              </span>
+            );
+            break;
+          case "echo":
+            let echoed = "";
+            args.map((arg, i) => {
+              if (i !== 0 && arg !== "") {
+                echoed += arg + " ";
+              }
+            });
+            if (echoed === "") {
+              
+              /* mimic behavior of `echo` in macos/linux */
+
+              echoed = " ";
+            }
+            output = (
+              <span>{echoed}</span>
+            );
+            break;
+          case "reboot":
+          case "restart":
+            window.location.reload();
+            break;
+
+          /* commands that print something go here */
+
+          default:
+            output = generateOutputComponent(firstArg);
+        }
+      } else {
+        output = <NotFoundText input={firstArg}/>;
+      }
+      newHistory = [...newHistory, output];
+    }
+    setTerminalHistory(newHistory);
+    setInput("");
+  };
+
   const handleOnKeyDown = (e) => {
     if (e.key === "Enter") {
-      let newHistory = [...terminalHistory];
-      newHistory = [...newHistory, <Prompt user={user} input={input}/>];
-      const trimmedInput = input.trim();
-      if (trimmedInput !== "") {
-        let output = <></>;
-        if (commands.includes(trimmedInput)) {
-          switch (trimmedInput) {
-
-            /* commands that handles actions go here */
-
-            case "clear":
-              newHistory = [];
-              break;
-            case "reboot":
-            case "restart":
-              window.location.reload();
-              break;
-
-            /* commands that print something go here */
-
-            default:
-              output = generateOutputComponent(trimmedInput);
-          }
-        } else {
-          output = <NotFoundText input={trimmedInput}/>;
-        }
-        newHistory = [...newHistory, output];
-      }
-      setTerminalHistory(newHistory);
-      setInput("");
+      handleTerminalInput();
     }
   };
 
@@ -101,18 +165,20 @@ const Terminal = ({ user, isLoading, setLoading }) => {
               </div>
             ))}
           </div>
-          <Prompt user={user}/>
-          <input
-            autoFocus
-            ref={inputRef}
-            className="terminal-input" 
-            type="text"
-            style={{"width" : getTextWidth(input)}}
-            value={input}
-            onChange={handleInputOnChange}
-            onKeyDown={handleOnKeyDown}
-          />
-          <Cursor />
+          <div>
+            <Prompt user={user}/>
+            <input
+              autoFocus
+              ref={inputRef}
+              className="terminal-input" 
+              type="text"
+              style={{"width" : getTextWidth(input)}}
+              value={input}
+              onChange={handleInputOnChange}
+              onKeyDown={handleOnKeyDown}
+            />
+            <Cursor />
+          </div>
         </div>
       }
     </div>

@@ -11,7 +11,7 @@ import "../../assets/terminal.css";
 import data from "../../data/data.json";
 
 const Loader = ({ user, isLoading, setLoading }) => {
-  const multiplier = 200;
+  const multiplier = 500;
   const dateIdentifier = "**";
   const userIdentifier = "%%";
   const bootSequence = data.bootSequence;
@@ -60,7 +60,7 @@ const Loader = ({ user, isLoading, setLoading }) => {
                 <Delayed key={i} waitBeforeShow={multiplier * i}>
                   <p>
                     <span>{text}</span>
-                    <span className="highlighted-text">{(new Date()).toUTCString()}</span>
+                    <span style={{ color : "cyan" }}>{(new Date()).toUTCString()}</span>
                   </p>
                 </Delayed>
               );

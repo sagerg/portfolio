@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { generateARandomName } from "../src/utils/nameGenerator";
 import Home from "./pages/Home";
+
+import { generateARandomName } from "../src/utils/nameGenerator";
 
 import "./assets/app.css"
 

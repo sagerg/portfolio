@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
  * @param {number} minHeight minimum height for the table 
  * @returns React.JSX.Element
  */
-const Grid = ({ data = undefined, minWidth = "100%", minHeight = "0" }) => {
+const Grid = ({ data = undefined, minWidth = "100%", colWidth = "auto" }) => {
 
   const [isDataValid, setDataValid] = useState(true);
 
@@ -30,13 +30,13 @@ const Grid = ({ data = undefined, minWidth = "100%", minHeight = "0" }) => {
   return (
     <>
       {isDataValid ?
-        <div style={{ display : "table", minWidth : minWidth, minHeight : minHeight }}>
+        <div className="grid" style={{ display : "table", minWidth : minWidth }}>
           {data.map((row, i) => {
             return (
               <div key={i} style={{ display : "table-row" }}>
                 {row.map((cell, j) => {
                   return (
-                    <div key={j} style={{ display : "table-cell" }}>
+                    <div key={j} className="cell" style={{ display : "table-cell", width : colWidth }}>
                       {cell}
                     </div>
                   );
