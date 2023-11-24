@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { generateARandomName } from "../src/utils/nameGenerator";
 import Home from "./pages/Home";
+
 import "./assets/app.css"
-import { generateARandomeName } from "../src/utils/nameGenerator";
 
 const App = () => {
-  const user = generateARandomeName();
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    const name = generateARandomName();
+    setUser(name);
+  }, []);
 
   return (
     <>

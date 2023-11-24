@@ -1,26 +1,21 @@
 import React , { useEffect, useState, useRef } from "react";
-import "../../assets/terminal.css"
-import data from "../../data/data.json";
 import Cursor from "../../components/ui/Cursor"
+import { 
+  Prompt,
+  IntroText,
+  LoginText,
+  NotFoundText,
+  HelpText
+} from "../../components/ui/CommandOutputs";
 
-const Terminal = ({ 
-  terminalHistory, 
-  setTerminalHistory,
-  user,
-  isLoading
-}) => {
+import "../../assets/terminal.css"
+
+import data from "../../data/data.json";
+
+const Terminal = ({ user, isLoading, setLoading }) => {
+  const [terminalHistory, setTerminalHistory] = useState([]);
   const [input, setInput] = useState("");
   const inputRef = useRef();
-  const preCursorText = (
-    <>
-      <span className="highlighted-text">
-        {user}
-      </span>
-      <span>
-        {"@Sages-MacBook-Pro ~ % "}
-      </span>
-    </>
-  );
   const commands = data.commands;
 
   const handleInputOnChange = (e) => {
@@ -28,24 +23,14 @@ const Terminal = ({
     setInput(cmd);
   };
 
-  const generateOutputComponent = (commands, trimmedInput) => {
+  const generateOutputComponent = (trimmedInput) => {
     let component = undefined;
     switch (trimmedInput) {
       case "help":
-        component = (
-          <>
-            {"Available commands: "}
-            <br />
-            {"    "}
-            {commands.slice(0, commands.length-1).map((command) => {
-              return (<span><b>{command}</b>, </span>)
-            })}
-            {<b>{commands[commands.length-1]}</b>}
-          </>
-        );
+        component = <HelpText/>;
         break;
       default:
-        component = <>{`zsh: command not found: ${trimmedInput}`}</>;
+        component = <NotFoundText input={trimmedInput}/>;
     }
     return component;
   };
@@ -53,18 +38,30 @@ const Terminal = ({
   const handleOnKeyDown = (e) => {
     if (e.key === "Enter") {
       let newHistory = [...terminalHistory];
-      newHistory = [...newHistory, <>{preCursorText}{input}</>];
+      newHistory = [...newHistory, <Prompt user={user} input={input}/>];
       const trimmedInput = input.trim();
       if (trimmedInput !== "") {
         let output = <></>;
         if (commands.includes(trimmedInput)) {
-          if (trimmedInput === "clear") {
-            newHistory = [];
-          } else {
-            output = generateOutputComponent(commands, trimmedInput);
+          switch (trimmedInput) {
+
+            /* commands that handles actions go here */
+
+            case "clear":
+              newHistory = [];
+              break;
+            case "reboot":
+            case "restart":
+              window.location.reload();
+              break;
+
+            /* commands that print something go here */
+
+            default:
+              output = generateOutputComponent(trimmedInput);
           }
         } else {
-          output = <>{`zsh: command not found: ${trimmedInput}`}</>;
+          output = <NotFoundText input={trimmedInput}/>;
         }
         newHistory = [...newHistory, output];
       }
@@ -86,6 +83,10 @@ const Terminal = ({
     }
   }, [isLoading]);
 
+  useEffect(() => {
+    setTerminalHistory([<LoginText/>, <IntroText/>]);
+  }, []);
+
   return (
     <div>
       {!isLoading &&
@@ -100,10 +101,9 @@ const Terminal = ({
               </div>
             ))}
           </div>
-          <span>
-            {preCursorText}
-          </span>
+          <Prompt user={user}/>
           <input
+            autoFocus
             ref={inputRef}
             className="terminal-input" 
             type="text"

@@ -4,12 +4,13 @@
     "about",
     "projects",
     "social-media",
+    "clear",
     "whoami",
     "cd",
     "ls",
     "echo",
-    "cat",
-    "clear"
+    "reboot",
+    "restart"
   ],
   "funny-names": [
     "Zoowee Blubberworth",

@@ -11,5 +11,9 @@ In the project directory, you can run:
 - [Jest](https://jestjs.io/docs/tutorial-react)
 - [Funny names](https://www.imagineforest.com/blog/funny-name-generator/)
 ### ROADMAP
-- [x] Make a loading screen
-- [ ] Add links and visuals
+= [x] Setup base React app
+- [x] Add a Loader component
+- [x] Add fake boot sequence when page loads
+- [x] Add pseudo bash history to terminal
+- [ ] Add a Grid component to handle display on terminal
+- [ ] Add content

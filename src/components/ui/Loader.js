@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import PulseLoader from "react-spinners/PulseLoader";
 import Delayed from "./Delayed";
-import data from "../../data/data.json";
 import Cursor from "./Cursor";
+import Link from "./Link";
 
 import "../../assets/loader.css";
-import "../../assets/terminal.css"
+import "../../assets/terminal.css";
+
+import data from "../../data/data.json";
 
 const Loader = ({ user, isLoading, setLoading }) => {
   const multiplier = 200;
@@ -16,10 +18,6 @@ const Loader = ({ user, isLoading, setLoading }) => {
   const loadDuration = multiplier * bootSequence.length;
 
   const [hasLoaderStalled, setLoaderStalled] = useState(false);
-
-  const handleTapOnMobile = () => {
-    setLoading(false);
-  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -85,19 +83,10 @@ const Loader = ({ user, isLoading, setLoading }) => {
           })}
           <Delayed waitBeforeShow={loadDuration}>
             <span>{"PRESS "}</span>
-            <span style={{ color : "yellowgreen" }}>{"ENTER"}</span>
+            <Link url="#" onClick={() => setLoading(false)}>{"ENTER"}</Link>
             <span>{" TO CONTINUE"}</span>
             <Cursor />
             <br /><br />
-            <p onClick={handleTapOnMobile}>
-              <a 
-                href="#"
-                style={{ textDecoration : "none", color : "#fff" }}
-              >
-                {"(Or tap here if you're on a mobile device 📱)"}
-              </a>
-            </p>
-            <br />
           </Delayed>
           <PulseLoader
             color={"yellow"}

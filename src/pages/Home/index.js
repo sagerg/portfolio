@@ -3,7 +3,6 @@ import Loader from "../../components/ui/Loader";
 import Terminal from "./Terminal";
 
 const Home = ({ user }) => {
-  const [terminalHistory, setTerminalHistory] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   return (
@@ -14,10 +13,9 @@ const Home = ({ user }) => {
         setLoading={setLoading}
       />
       <Terminal 
-        terminalHistory={terminalHistory}
-        setTerminalHistory={setTerminalHistory}
         user={user}
         isLoading={isLoading}
+        setLoading={setLoading}
       />
     </>
   );
