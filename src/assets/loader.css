@@ -1,0 +1,8 @@
+.loader {
+  background-color: #151515;
+  color: #fff;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: auto;
+}
