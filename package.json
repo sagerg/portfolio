@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/sagerg/portfolio/issues"
   },
-  "homepage": "https://github.com/sagerg/portfolio#readme",
+  "homepage": "https://sagerg.github.io/",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -40,7 +40,7 @@
     "Boot_Sequence status=started...",
     "PMAP: PCID enabled",
     "** Sage's Kernel Version 1.0.0: ",
-    "%% Logging in as USER: ",
+    "%% Logging in as USER=",
     "Unpacking Experience.tar.gz...",
     "Unzipping Projects.zip...",
     "Unpacking About.pkg...",

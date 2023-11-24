@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Loader from "../../components/ui/Loader";
 import Terminal from "./Terminal";
 
-const Home = ({ user }) => {
+import { UserContext } from "../../context/UserContext";
+
+const Home = () => {
   const [isLoading, setLoading] = useState(true);
+  const user = useContext(UserContext);
 
   return (
     <>
