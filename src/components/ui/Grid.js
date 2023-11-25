@@ -30,7 +30,7 @@ const Grid = ({ data = undefined, minWidth = "100%", colWidth = "auto" }) => {
   return (
     <>
       {isDataValid ?
-        <div className="grid" style={{ display : "table", minWidth : minWidth }}>
+        <div data-testid="grid-test" className="grid" style={{ display : "table", minWidth : minWidth }}>
           {data.map((row, i) => {
             return (
               <div key={i} style={{ display : "table-row" }}>

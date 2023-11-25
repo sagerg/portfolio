@@ -10,7 +10,7 @@ import data from "../../data/data.json";
 export const Prompt = ({ user, input = undefined }) => {
   return (
     <>
-      <span className="highlighted-text">
+      <span data-testid="prompt-test" className="highlighted-text">
         {user}
       </span>
       <span>
@@ -104,7 +104,7 @@ export const LoginText = () => {
   return (
     <>
       <span>{"Last login: "}</span>
-      <span style={{ color : "cyan "}}>{(new Date()).toUTCString()}</span>
+      <span data-testid="login-date-test" style={{ color : "cyan "}}>{(new Date()).toUTCString()}</span>
       <span>{" on console"}</span>
     </>
   );
