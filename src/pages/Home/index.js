@@ -9,7 +9,7 @@ const Home = () => {
   const user = useContext(UserContext);
 
   return (
-    <>
+    <div data-testid="home-test" className="home">
       <Loader 
         user={user}
         isLoading={isLoading}
@@ -20,7 +20,7 @@ const Home = () => {
         isLoading={isLoading}
         setLoading={setLoading}
       />
-    </>
+    </div>
   );
 };
 

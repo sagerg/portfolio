@@ -10,7 +10,7 @@ import data from "../../data/data.json";
 export const Prompt = ({ user, input = undefined }) => {
   return (
     <>
-      <span className="highlighted-text">
+      <span data-testid="prompt-test" className="highlighted-text">
         {user}
       </span>
       <span>
@@ -104,7 +104,7 @@ export const LoginText = () => {
   return (
     <>
       <span>{"Last login: "}</span>
-      <span style={{ color : "cyan "}}>{(new Date()).toUTCString()}</span>
+      <span data-testid="login-date-test" style={{ color : "cyan "}}>{(new Date()).toUTCString()}</span>
       <span>{" on console"}</span>
     </>
   );
@@ -138,19 +138,19 @@ export const HelpText = () => {
             ],
             [
               <div>{"help"}</div>,
-              <div>{"show all commands allowed for this user"}</div>
+              <div>{" show all commands allowed for this user"}</div>
             ],
             [
               <div>{"about"}</div>,
-              <div>{"give a brief description of my owner"}</div>
+              <div>{" give a brief description of my owner"}</div>
             ],
             [
               <div>{"projects"}</div>,
-              <div>{"what kind of projects? can I eat them? -Bongo"}</div>
+              <div>{" what kind of projects? can I eat them? -Bongo"}</div>
             ],
             [
               <div>{"social_media"}</div>,
-              <div>{"list my owner's instagram and stuff"}</div>
+              <div>{" list my owner's instagram and stuff"}</div>
             ]
           ]
         }
@@ -175,7 +175,7 @@ export const AboutText = () => {
     My name is Sage ... ヾ(＾∇＾)
     I graduated with a bachelor's degree in computer science in 2022
     And I started working as a software engineer right after ... (⁰ ◕〜◕ ⁰)
-    I work on the frontent, backend, and stuff in between the two (CICD, KTLO, etc)
+    I work on the frontend, backend, and stuff in between the two (CICD, KTLO, etc)
     `
   );
   const multiplier = 40;
@@ -256,7 +256,7 @@ export const ProjectsText = () => {
           );
         })}
       </div>
-      <Delayed waitBeforeShow={multiplier * bongoCatSpiel.length}>
+      <Delayed waitBeforeShow={multiplier * bongoCatSpiel.split("").length}>
         <div style={{ color : "yellowgreen" }}>{"Sage says:"}</div>
         {sageSpiel.split("").map((character, i) => {
           return (
@@ -265,7 +265,7 @@ export const ProjectsText = () => {
             </Delayed>
           );
         })}
-        <Delayed waitBeforeShow={multiplier * sageSpiel.length}>
+        <Delayed waitBeforeShow={multiplier * sageSpiel.split("").length}>
           <div>
             {"You can check them out on my "}
             <Link url={"https://github.com/sagerg"}>
@@ -307,7 +307,7 @@ export const SocialMediaText = () => {
           </Delayed>
         );
       })}
-      <Delayed waitBeforeShow={multiplier * sageSpiel.length}>
+      <Delayed waitBeforeShow={multiplier * sageSpiel.split("").length}>
         {Object
           .entries(socialMediaAccounts)
           .map(([socialMediaKey, urlValue], i) => {
@@ -321,7 +321,7 @@ export const SocialMediaText = () => {
         })}
       </Delayed>
       <br/>
-      <Delayed waitBeforeShow={multiplier * (sageSpiel.length + 1)}>
+      <Delayed waitBeforeShow={multiplier * (sageSpiel.split("").length + 1)}>
         <div style={{ color : "yellowgreen" }}>{"BongoCat.txt says:"}</div>
         {bongoCatSpiel.split("").map((character, i) => {
           return (

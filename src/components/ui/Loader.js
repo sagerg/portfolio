@@ -39,14 +39,13 @@ const Loader = ({ user, isLoading, setLoading }) => {
    },[hasLoaderStalled]);
 
   return (
-    <div>
+    <div data-testid="loader-test">
       {isLoading &&
         <div className="loader">
           <PacmanLoader
             color={"yellow"}
             size={10}
             aria-label="Loading Spinner"
-            data-testid="loader"
           />
           {bootSequence.map((text, i) => {
             if (text === "") {
@@ -92,7 +91,6 @@ const Loader = ({ user, isLoading, setLoading }) => {
             color={"yellow"}
             size={10}
             aria-label="Loading Spinner"
-            data-testid="loader"
           />
         </div>
       }
