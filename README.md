@@ -1,4 +1,4 @@
-# [Portfolio](https://sagerg.github.io/portfolio/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/sagerg/portfolio/blob/main/LICENSE) ![Webpack CI](https://github.com/sagerg/portfolio/actions/workflows/webpack.yml/badge.svg)
+# [Portfolio](https://sagerg.github.io/portfolio/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/sagerg/portfolio/blob/main/LICENSE) [![pages-build-deployment](https://github.com/sagerg/portfolio/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/sagerg/portfolio/actions/workflows/pages/pages-build-deployment) ![Webpack CI](https://github.com/sagerg/portfolio/actions/workflows/webpack.yml/badge.svg)
 
 A [React](https://reactjs.org/) web application that:
 
@@ -7,7 +7,7 @@ A [React](https://reactjs.org/) web application that:
 
 ## Quick Start
 
-Download and run this application on your local server:
+Download and run this application in development mode on your local server:
 
 ```
 $ git clone https://github.com/sagerg/portfolio.git
