@@ -3,7 +3,7 @@ import "../../assets/link.css"
 
 const Link = ({ children, url = "#", onClick = undefined, color = "violet" }) => {
   return (
-    <span>
+    <span data-testid="link-test">
       <a className="link"
         href={url}
         onClick={onClick}

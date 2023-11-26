@@ -152,7 +152,7 @@ const Terminal = ({ user, isLoading, setLoading }) => {
   }, []);
 
   return (
-    <div>
+    <div data-testid="terminal-test">
       {!isLoading &&
         <div 
           className="terminal-wrapper"
