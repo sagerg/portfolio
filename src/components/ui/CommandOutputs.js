@@ -175,7 +175,7 @@ export const AboutText = () => {
     My name is Sage ... ヾ(＾∇＾)
     I graduated with a bachelor's degree in computer science in 2022
     And I started working as a software engineer right after ... (⁰ ◕〜◕ ⁰)
-    I work on the frontent, backend, and stuff in between the two (CICD, KTLO, etc)
+    I work on the frontend, backend, and stuff in between the two (CICD, KTLO, etc)
     `
   );
   const multiplier = 40;
