@@ -138,19 +138,19 @@ export const HelpText = () => {
             ],
             [
               <div>{"help"}</div>,
-              <div>{"show all commands allowed for this user"}</div>
+              <div>{" show all commands allowed for this user"}</div>
             ],
             [
               <div>{"about"}</div>,
-              <div>{"give a brief description of my owner"}</div>
+              <div>{" give a brief description of my owner"}</div>
             ],
             [
               <div>{"projects"}</div>,
-              <div>{"what kind of projects? can I eat them? -Bongo"}</div>
+              <div>{" what kind of projects? can I eat them? -Bongo"}</div>
             ],
             [
               <div>{"social_media"}</div>,
-              <div>{"list my owner's instagram and stuff"}</div>
+              <div>{" list my owner's instagram and stuff"}</div>
             ]
           ]
         }
