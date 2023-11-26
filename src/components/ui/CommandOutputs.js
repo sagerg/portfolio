@@ -256,7 +256,7 @@ export const ProjectsText = () => {
           );
         })}
       </div>
-      <Delayed waitBeforeShow={multiplier * bongoCatSpiel.length}>
+      <Delayed waitBeforeShow={multiplier * bongoCatSpiel.split("").length}>
         <div style={{ color : "yellowgreen" }}>{"Sage says:"}</div>
         {sageSpiel.split("").map((character, i) => {
           return (
@@ -265,7 +265,7 @@ export const ProjectsText = () => {
             </Delayed>
           );
         })}
-        <Delayed waitBeforeShow={multiplier * sageSpiel.length}>
+        <Delayed waitBeforeShow={multiplier * sageSpiel.split("").length}>
           <div>
             {"You can check them out on my "}
             <Link url={"https://github.com/sagerg"}>
@@ -307,7 +307,7 @@ export const SocialMediaText = () => {
           </Delayed>
         );
       })}
-      <Delayed waitBeforeShow={multiplier * sageSpiel.length}>
+      <Delayed waitBeforeShow={multiplier * sageSpiel.split("").length}>
         {Object
           .entries(socialMediaAccounts)
           .map(([socialMediaKey, urlValue], i) => {
@@ -321,7 +321,7 @@ export const SocialMediaText = () => {
         })}
       </Delayed>
       <br/>
-      <Delayed waitBeforeShow={multiplier * (sageSpiel.length + 1)}>
+      <Delayed waitBeforeShow={multiplier * (sageSpiel.split("").length + 1)}>
         <div style={{ color : "yellowgreen" }}>{"BongoCat.txt says:"}</div>
         {bongoCatSpiel.split("").map((character, i) => {
           return (
