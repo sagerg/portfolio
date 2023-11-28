@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Home from "./pages/Home";
 
 import { UserContext } from "./context/UserContext";
-import { generateARandomName } from "../src/utils/nameGenerator";
+import { generateARandomName } from "../src/utils/randomNameFactory";
 
 import "./assets/app.css"
 
