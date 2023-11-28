@@ -3,7 +3,7 @@ import Link from "./Link";
 import Delayed from "./Delayed";
 import Grid from "./Grid";
 
-import { pickARandomBongoCat } from "../../utils/bongoCatFrameRandomPicker"
+import { getRandomItemFrom } from "../../utils/randomItemFactory";
 
 import data from "../../data/data.json";
 
@@ -22,42 +22,7 @@ export const Prompt = ({ user, input = undefined }) => {
 };
 
 export const IntroText = () => {
-  const bongoCatPawsDown = (
-    `
-    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣷⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-    ⠀⠀⠀⠀⠀⠀⠀⣀⣶⣿⣿⣿⣿⣿⣿⣷⣶⣶⣶⣦⣀⡀⠀⢀⣴⣇⠀⠀⠀⠀
-    ⠀⠀⠀⠀⠀⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀
-    ⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀
-    ⠀⠀⠀⣴⣿⣿⣿⣿⠛⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀
-    ⠀⠀⣾⣿⣿⣿⣿⣿⣶⣿⣯⣭⣬⣉⣽⣿⣿⣄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀
-    ⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄
-    ⢸⣿⣿⣿⣿⠟⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⣿⣿⣿⣿⡿⠛⠉⠉⠉⠉⠁
-    ⠘⠛⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀
-    `
-  );
-  const bongoCatPawsUp = (
-    `
-    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-    ⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⣀⡀⣠⣾⡇⠀⠀⠀⠀
-    ⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀
-    ⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⢿⣿⣿⡇⠀⠀⠀⠀
-    ⠀⣶⣿⣦⣜⣿⣿⣿⡟⠻⣿⣿⣿⣿⣿⣿⣿⡿⢿⡏⣴⣺⣦⣙⣿⣷⣄⠀⠀⠀
-    ⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀
-    ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀
-    ⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷
-    ⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷
-    `
-  );
-  const bongoCatAsciiSrc = "https://copypastatext.com/bongo-cat-ascii/";
-  const spiel = (
-    `
-    Oh, hi there ... Looks like something on the client side broke ... (｡•́︿•̀｡)՞
-    That's what I get for pushing to prod on a Friday night
-    Guess you'll have to use this terminal for now
-    Lucky for you, I made this environment user-friendly
-    Go ahead and take a look around for now while I fix some stuff ~ !
-    `
-  );
+  const speaker1 = data.introSpiel.fromSpeaker1.split("");
   const multiplier = 40;
 
   return (
@@ -71,15 +36,14 @@ export const IntroText = () => {
                 <>
                   <br/>
                   <div style={{ color : "yellowgreen" }}>{"BongoCat.txt says:"}</div>
-                  {spiel.split("").map((character, i) => {
+                  {speaker1.map((character, i) => {
                     return (
                       <Delayed key={i} waitBeforeShow={multiplier * i}>
-                        {character}
+                        <span>{character}</span>
                       </Delayed>
-                    );
-                  })}
-                  <br />
-                  <Delayed waitBeforeShow={multiplier * spiel.split("").length}>
+                  )})}
+                  <br /><br />
+                  <Delayed waitBeforeShow={multiplier * speaker1.length}>
                     <>
                       <span>{"Type "}</span>
                       <span style={{ color : "cyan" }}>{"help"}</span>
@@ -89,8 +53,20 @@ export const IntroText = () => {
                 </>
               ),
               <>
-                {pickARandomBongoCat([bongoCatPawsDown, bongoCatPawsUp])}
-                <Link url={bongoCatAsciiSrc}>{"Source"}</Link>
+                {
+                  getRandomItemFrom(
+                    [
+                      data.bongoCat.pawsDown,
+                      data.bongoCat.pawsUp
+                    ]
+                  ).map((line, i) => {
+                    return (
+                      <Delayed key={i} waitBeforeShow={100 * i}>
+                        <div>{line}</div>
+                      </Delayed>
+                    )
+                  })
+                }
               </>
             ]
           ]
@@ -138,19 +114,19 @@ export const HelpText = () => {
             ],
             [
               <div>{"help"}</div>,
-              <div>{" show all commands allowed for this user"}</div>
+              <div>{data.helpText.help}</div>
             ],
             [
               <div>{"about"}</div>,
-              <div>{" give a brief description of my owner"}</div>
+              <div>{data.helpText.about}</div>
             ],
             [
               <div>{"projects"}</div>,
-              <div>{" what kind of projects? can I eat them? -Bongo"}</div>
+              <div>{data.helpText.projects}</div>
             ],
             [
               <div>{"social_media"}</div>,
-              <div>{" list my owner's instagram and stuff"}</div>
+              <div>{data.helpText.social_media}</div>
             ]
           ]
         }
@@ -158,26 +134,21 @@ export const HelpText = () => {
       <br/>
       <div>{"Other commands:"}</div>
       <div>
-        {
-          `
-          clear, whoami, echo, reboot, restart, pwd, ls
-          `
-        }
+        {"\t"}
+        {data.commands.map((command, i) => {
+          return (
+            (!(["help", "about", "projects", "social_media"].includes(command)))
+            ? <span key={i}>{command}{' '}</span>
+            : null
+          )
+        })}
       </div>
     </div>
   );
 };
 
 export const AboutText = () => {
-  const spiel = (
-    `
-    Hi, welcome to my page - I think you already met my (virtual) cat Bongo
-    My name is Sage ... ヾ(＾∇＾)
-    I graduated with a bachelor's degree in computer science in 2022
-    And I started working as a software engineer right after ... (⁰ ◕〜◕ ⁰)
-    I work on the frontend, backend, and stuff in between the two (CICD, KTLO, etc)
-    `
-  );
+  const speaker1 = data.aboutSpiel.fromSpeaker1.split("");
   const multiplier = 40;
 
   return (
@@ -188,7 +159,7 @@ export const AboutText = () => {
       </div>
       <div style={{ color : "yellowgreen" }}>{"Sage says:"}</div>
       <div>
-        {spiel.split("").map((character, i) => {
+        {speaker1.map((character, i) => {
           return (
             <Delayed key={i} waitBeforeShow={multiplier * i}>
               {character}
@@ -196,25 +167,26 @@ export const AboutText = () => {
           );
         })}
       </div>
-      <Delayed waitBeforeShow={multiplier * spiel.split("").length}>
+      <Delayed waitBeforeShow={multiplier * speaker1.length}>
         <div>
-          {"I've worked with organizations like "}
-          <div>
+          {"I've volunteered in organizations like "}
           <Link url={"https://twitter.com/siklab_org"}>
             {"Siklab"}
-          </Link>
-          </div>
-          <div>
+          </Link>{", "}
           <Link url={"https://www.instagram.com/uxsocietyph/"}>
-            {"User Experience Society"}
-          </Link>
-          </div>
-          <div>
+            {"User Experience Society, "}
+          </Link>{", and "}
           <Link url={"https://www.instagram.com/hackumbc/"}>
             {"hackUMBC"}
           </Link>
-          </div>
-          {"Usually to do some development work or help out in creative ventures ٩(◕‿◕)۶"}
+          <br/>
+          {"And I've written software for places like "}
+          <Link url="https://www.jpmorganchase.com/">
+            {"JPMorgan Chase & Co."}
+          </Link>{" and "}
+          <Link url="https://www.oracle.com/">
+            {"Oracle"}
+          </Link>
         </div>
       </Delayed>
     </div>
@@ -222,22 +194,8 @@ export const AboutText = () => {
 };
 
 export const ProjectsText = () => {
-  const bongoCatSpiel = (
-    `
-    He doesn't have time for projects ?? (╯°□°）╯
-    We need to get the frontend up and running !!
-    `
-  );
-  const sageSpiel = (
-    `
-    Sorry, Bongo is getting heated because we're breaking SLA due to this downtime
-
-    Hmmm ...
-    I don't have any super cool open source stuff published (yet)
-    I do have some personal projects that I've made over the years ... (ᴗᵔᴥᵔ)
-    Mostly written in JavaScript, React, Python, or C++
-    `
-  );
+  const speaker1 = data.projectSpiel.fromSpeaker1.split("");
+  const speaker2 = data.projectSpiel.fromSpeaker2.split("");
   const multiplier = 40;
 
   return (
@@ -246,31 +204,81 @@ export const ProjectsText = () => {
         <span style={{ color : "cyan" }}>{"projects"}</span>
         <br/><br/>
       </div>
-      <div style={{ color : "yellowgreen" }}>{"BongoCat.txt says:"}</div>
-      <div>
-        {bongoCatSpiel.split("").map((character, i) => {
-          return (
-            <Delayed key={i} waitBeforeShow={multiplier * i}>
-              {character}
-            </Delayed>
-          );
-        })}
-      </div>
-      <Delayed waitBeforeShow={multiplier * bongoCatSpiel.split("").length}>
+      <Grid 
+        colWidth={"50%"}
+        data={
+          [
+            [
+              (
+                <>
+                  <br/>
+                  <div style={{ color : "yellowgreen" }}>{"BongoCat.txt says:"}</div>
+                  {speaker1.map((character, i) => {
+                    return (
+                      <Delayed key={i} waitBeforeShow={multiplier * i}>
+                        {character}
+                      </Delayed>
+                    );
+                  })}
+                </>
+              ),
+              <>
+                {
+                  getRandomItemFrom(
+                    [
+                      data.bongoCat.pawsDown,
+                      data.bongoCat.pawsUp
+                    ]
+                  ).map((line, i) => {
+                    return (
+                      <Delayed key={i} waitBeforeShow={100 * i}>
+                        <div>{line}</div>
+                      </Delayed>
+                    )
+                  })
+                }
+              </>
+            ]
+          ]
+        }
+      />
+      <Delayed waitBeforeShow={multiplier * speaker1.length}>
         <div style={{ color : "yellowgreen" }}>{"Sage says:"}</div>
-        {sageSpiel.split("").map((character, i) => {
+        {speaker2.map((character, i) => {
           return (
             <Delayed key={i} waitBeforeShow={multiplier * i}>
               {character}
             </Delayed>
           );
         })}
-        <Delayed waitBeforeShow={multiplier * sageSpiel.split("").length}>
+        <Delayed waitBeforeShow={multiplier * speaker2.length}>
           <div>
             {"You can check them out on my "}
             <Link url={"https://github.com/sagerg"}>
               {"GitHub"}
             </Link>
+          </div>
+          <br/>
+          <div>
+            {"Some of my most notable ones include: "}
+            <div>
+              <Link url={"https://github.com/ZhihongPang/Pokemon530"}>
+                {"a Pokemon GO clone"}
+              </Link>
+              {" made with Django, PostgreSQL, and Heroku"}
+            </div>
+            <div>
+              <Link url="https://github.com/sagerg/connect-four-design">
+                {"a connect four program"}
+              </Link>
+              {" made with Python"}
+            </div>
+            <div>
+              <Link url="https://github.com/sagerg/cmd-line-tools#password-manager">
+                {"a password manager"}
+              </Link>
+              {" made with C++ to encrypt and manage passwords"}
+            </div>
           </div>
         </Delayed>
       </Delayed>
@@ -279,19 +287,10 @@ export const ProjectsText = () => {
 };
 
 export const SocialMediaText = () => {
-  const bongoCatSpiel = (
-    `
-    Wait ... Can you guys follow my instagram too. I just made it ◕︵◕
-    `
-  );
-  const sageSpiel = (
-    `
-    Oh man I can't really use social media while on the job ...
-    But since you're curious - I'll list the ones I use the most ... ꒰ · ◡ · ꒱
-    `
-  );
-  const multiplier = 40;
+  const speaker1 = data.socialSpiel.fromSpeaker1.split("");
+  const speaker2 = data.socialSpiel.fromSpeaker2.split("");
   const socialMediaAccounts = data.socialMediaAccounts;
+  const multiplier = 40;
 
   return (
     <div>
@@ -300,36 +299,68 @@ export const SocialMediaText = () => {
         <br/><br/>
       </div>
       <div style={{ color : "yellowgreen" }}>{"Sage says:"}</div>
-      {sageSpiel.split("").map((character, i) => {
+      {speaker1.map((character, i) => {
         return (
           <Delayed key={i} waitBeforeShow={multiplier * i}>
             {character}
           </Delayed>
         );
       })}
-      <Delayed waitBeforeShow={multiplier * sageSpiel.split("").length}>
+      <br/>
+      <Delayed waitBeforeShow={multiplier * speaker1.length}>
         {Object
           .entries(socialMediaAccounts)
           .map(([socialMediaKey, urlValue], i) => {
             return (
-              <div>
+              <span key={i}>
                 <Link url={urlValue}>
                   {socialMediaKey}
                 </Link>
-              </div>
+                {" "}
+              </span>
             );
         })}
       </Delayed>
       <br/>
-      <Delayed waitBeforeShow={multiplier * (sageSpiel.split("").length + 1)}>
-        <div style={{ color : "yellowgreen" }}>{"BongoCat.txt says:"}</div>
-        {bongoCatSpiel.split("").map((character, i) => {
-          return (
-            <Delayed key={i} waitBeforeShow={multiplier * i}>
-              {character}
-            </Delayed>
-          );
-        })}
+      <Delayed waitBeforeShow={multiplier * (speaker1.length + 1)}>
+        <Grid 
+          colWidth={"50%"}
+          data={
+            [
+              [
+                (
+                  <>
+                    <br/>
+                    <div style={{ color : "yellowgreen" }}>{"BongoCat.txt says:"}</div>
+                    {speaker2.map((character, i) => {
+                      return (
+                        <Delayed key={i} waitBeforeShow={multiplier * i}>
+                          {character}
+                        </Delayed>
+                      );
+                    })}
+                  </>
+                ),
+                <>
+                  {
+                    getRandomItemFrom(
+                      [
+                        data.bongoCat.pawsDown,
+                        data.bongoCat.pawsUp
+                      ]
+                    ).map((line, i) => {
+                      return (
+                        <Delayed key={i} waitBeforeShow={100 * i}>
+                          <div>{line}</div>
+                        </Delayed>
+                      )
+                    })
+                  }
+                </>
+              ]
+            ]
+          }
+        />
       </Delayed>
     </div>
   );

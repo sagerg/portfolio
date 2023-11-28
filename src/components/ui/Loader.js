@@ -12,8 +12,8 @@ import data from "../../data/data.json";
 
 const Loader = ({ user, isLoading, setLoading }) => {
   const multiplier = 500;
-  const dateIdentifier = "**";
-  const userIdentifier = "%%";
+  const dateIdentifier = "date";
+  const userIdentifier = "user";
   const bootSequence = data.bootSequence;
   const loadDuration = multiplier * bootSequence.length;
 
@@ -82,7 +82,7 @@ const Loader = ({ user, isLoading, setLoading }) => {
           })}
           <Delayed waitBeforeShow={loadDuration}>
             <span>{"PRESS "}</span>
-            <Link url="#" onClick={() => setLoading(false)}>{"ENTER"}</Link>
+            <Link url="#" opensOnNewTab={false} onClick={() => setLoading(false)}>{"ENTER"}</Link>
             <span>{" TO CONTINUE"}</span>
             <Cursor />
             <br /><br />
