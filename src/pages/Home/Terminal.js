@@ -128,9 +128,16 @@ const Terminal = ({ user, isLoading, setLoading }) => {
     setInput("");
   };
 
+  const handleScrollToInput = () => {
+    if (!isLoading && inputRef.current !== undefined) {
+      setTimeout(() => inputRef.current.scrollIntoView(), 0);
+    }
+  };
+
   const handleOnKeyDown = (e) => {
     if (e.key === "Enter") {
       handleTerminalInput();
+      handleScrollToInput();
     }
   };
 

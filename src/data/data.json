@@ -37,16 +37,15 @@
     "Dingbo Roachseed"
   ],
   "bootSequence": [
-    "Boot_Sequence status=started...",
+    "Client status is currently offline...",
+    "[default_protocol_enabled] ssh to web server with ip addr 127.0.0.1",
     "PMAP: PCID enabled",
-    "** Sage's Kernel Version 1.0.0: ",
-    "%% Logging in as USER=",
-    "Unpacking Experience.tar.gz...",
+    "Sage's Kernel Version 1.0.0: date=",
+    "Logging in as user=",
+    "Unpacking About.tar.gz...",
     "Unzipping Projects.zip...",
-    "Unpacking About.pkg...",
-    "Parsing Social_Media_Accounts.csv...",
+    "Parsing SocialMedia.csv...",
     "Loading BongoCat.txt...",
-    "=＾● ⋏ ●＾= ~ hello?",
     "",
     "[OSBoot1]",
     "[OSBoot2]",
@@ -60,7 +59,52 @@
   "socialMediaAccounts": {
     "Instagram": "https://www.instagram.com/sage.garcia21/",
     "GitHub": "https://github.com/sagerg",
-    "LinkedIn": "https://www.linkedin.com/in/sagegarcia/",
-    "Personal Email": "mailto:sage.garcia21@gmail.com"
+    "Linkedin": "https://www.linkedin.com/in/sagegarcia/",
+    "Email": "mailto:sage.garcia21@gmail.com"
+  },
+  "bongoCat": {
+    "pawsDown": [
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣷⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⣀⣶⣿⣿⣿⣿⣿⣿⣷⣶⣶⣶⣦⣀⡀⠀⢀⣴⣇⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀",
+      "⠀⠀⠀⣴⣿⣿⣿⣿⠛⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀",
+      "⠀⠀⣾⣿⣿⣿⣿⣿⣶⣿⣯⣭⣬⣉⣽⣿⣿⣄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀",
+      "⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄",
+      "⢸⣿⣿⣿⣿⠟⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⣿⣿⣿⣿⡿⠛⠉⠉⠉⠉⠁",
+      "⠘⠛⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠛⠛⠃⠀⠀⠀⠀⠀⠀⠀"
+    ],
+    "pawsUp": [
+      "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣶⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⣀⡀⣠⣾⡇⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀",
+      "⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⢿⣿⣿⡇⠀⠀⠀⠀",
+      "⠀⣶⣿⣦⣜⣿⣿⣿⡟⠻⣿⣿⣿⣿⣿⣿⣿⡿⢿⡏⣴⣺⣦⣙⣿⣷⣄⠀⠀⠀",
+      "⠀⣯⡇⣻⣿⣿⣿⣿⣷⣾⣿⣬⣥⣭⣽⣿⣿⣧⣼⡇⣯⣇⣹⣿⣿⣿⣿⣧⠀⠀",
+      "⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷⠀",
+      "⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣷",
+      "⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷"
+    ],
+    "source": "https://copypastatext.com/bongo-cat-ascii/"
+  },
+  "helpText": {
+    "help": "\tshow all commands allowed for this user",
+    "about": "\tgive a brief description of my owner",
+    "projects": "\tstuff",
+    "social_media": "\tlist my owner's instagram and stuff"
+  },
+  "introSpiel": {
+    "fromSpeaker1": "Oh, hi there ... Looks like something on the client side broke ... (｡•́︿•̀｡)՞\nThat's what I get for pushing to production on a Friday night\nGuess you'll have to use this terminal for now\nLucky for you, I made this environment user-friendly\nGo ahead and take a look around for now while I fix some stuff ~ !"
+  },
+  "aboutSpiel": {
+    "fromSpeaker1": "Hi, welcome to my page\nMy name is Sage ... ヾ(＾∇＾)\nI graduated with a bachelor's degree in computer science in 2022\nAnd I started working as a software engineer right after ... (⁰ ◕〜◕ ⁰)\nI work on building user interfaces, APIs, CI/CD pipelines, KTLO tools, design docs, documentation, etc"
+  },
+  "projectSpiel": {
+    "fromSpeaker1": "He doesn't have time for projects ?? (╯°□°）╯\nWe need to get the client up and running !!",
+    "fromSpeaker2": "...\n\nI don't have any super cool open source stuff published (yet)\nI do have some personal projects that I've made over the years ... (ᴗᵔᴥᵔ)\nMostly written in JavaScript, React, Python, or C++"
+  },
+  "socialSpiel": {
+    "fromSpeaker1": "I'll list the ones I use the most here ... ꒰ · ◡ · ꒱",
+    "fromSpeaker2": "Wait ... Can you guys follow my VSCO too. I just made one!"
   }
 }
