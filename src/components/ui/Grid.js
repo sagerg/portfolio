@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import "../../assets/grid.css";
+
 /**
  * Custom Grid for handling displayed text in a grid format
  * @param {Array} data 2D array representing a table for divs
