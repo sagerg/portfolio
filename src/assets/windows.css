@@ -27,6 +27,23 @@
     justify-content: space-between;
 }
 
+.clock {
+  padding: 3px;
+  background-color: rgb(195, 195, 195);
+}
+
+.icons-wrapper {
+  color: #fff;
+  float: right;
+  position: relative;
+  top: 10px;
+  right: 10px;
+}
+
+.icons {
+  font-size: 30px;  
+}
+
 .close-icon {
     display: inline-block;
     width: 16px;
@@ -54,4 +71,18 @@
       top: 50%;
       transform: translateY(-50%);
     }
+}
+
+@media screen and (max-width: 600px) {
+  .window {
+    width: 90%;
+  }
+  
+  .icons-wrapper {
+    display: none !important;
+  }
+
+  .clock {
+    display: none !important;
+  }
 }

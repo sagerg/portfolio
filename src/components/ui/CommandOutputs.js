@@ -20,8 +20,8 @@ export const Prompt = ({ user, input = undefined }) => {
   )
 };
 
-export const IntroText = () => {
-  const speaker1 = data.introSpiel.fromSpeaker1.split("");
+export const IntroText = ({ user = undefined }) => {
+  // const speaker1 = data.introSpiel.fromSpeaker1.split("");
   const multiplier = 40;
 
   return (
@@ -34,7 +34,7 @@ export const IntroText = () => {
               (
                 <>
                   <br/>
-                  <div style={{ color : "yellowgreen" }}>{"BongoCat.txt says:"}</div>
+                  {/* <div style={{ color : "yellowgreen" }}>{"BongoCat.txt says:"}</div>
                   {speaker1.map((character, i) => {
                     return (
                       <Delayed key={i} waitBeforeShow={multiplier * i}>
@@ -48,25 +48,29 @@ export const IntroText = () => {
                       <span style={{ color : "cyan" }}>{"help"}</span>
                       <span>{" to get started"}</span>
                     </>
-                  </Delayed>
+                  </Delayed> */}
+                  <div>{`Welcome back, ${user.split(" ")[0]}! You currently have Guest permissions on Sage's desktop.`}</div>
+                  <span>{"Type "}</span>
+                  <span style={{ color : "cyan" }}>{"help"}</span>
+                  <span>{" to get started"}</span>
                 </>
               ),
-              <div style={{ marginRight : "5px" }}>
-                {
-                  getRandomItemFrom(
-                    [
-                      data.bongoCat.pawsDown,
-                      data.bongoCat.pawsUp
-                    ]
-                  ).map((line, i) => {
-                    return (
-                      <Delayed key={i} waitBeforeShow={100 * i}>
-                        <div>{line}</div>
-                      </Delayed>
-                    )
-                  })
-                }
-              </div>
+              // <div style={{ marginRight : "5px" }}>
+              //   {
+              //     getRandomItemFrom(
+              //       [
+              //         data.bongoCat.pawsDown,
+              //         data.bongoCat.pawsUp
+              //       ]
+              //     ).map((line, i) => {
+              //       return (
+              //         <Delayed key={i} waitBeforeShow={100 * i}>
+              //           <div>{line}</div>
+              //         </Delayed>
+              //       )
+              //     })
+              //   }
+              // </div>
             ]
           ]
         }
@@ -87,11 +91,14 @@ export const LoginText = () => {
 
 export const NotFoundText = ({ input = undefined }) => {
   return (
-    <>{`zsh: command not found: ${input}`}</>
+    <div>
+      <div>{`'${input}' is not recognized as an internal or external command,`}</div>
+      <div>operable program or batch file.</div>
+    </div>
   );
 };
 
-export const HelpText = () => {
+export const HelpText = ({ user = undefined }) => {
   return (
     <div>
       <Grid
@@ -106,42 +113,66 @@ export const HelpText = () => {
             ],
             [
               <div>
-                {"Usage:"}
+                {`Hey ${user.split(" ")[0]}, here are some cmds that you can use:`}
                 <br/><br/>
               </div>,
               <></>
             ],
             [
-              <div>{"help"}</div>,
+              <div>{"'help'"}</div>,
               <div>{data.helpText.help}</div>
             ],
             [
-              <div>{"about"}</div>,
+              <div>{"'about'"}</div>,
               <div>{data.helpText.about}</div>
             ],
             [
-              <div>{"projects"}</div>,
+              <div>{"'projects'"}</div>,
               <div>{data.helpText.projects}</div>
             ],
             [
-              <div>{"social_media"}</div>,
-              <div>{data.helpText.social_media}</div>
-            ]
+              <div>{"'socials'"}</div>,
+              <div>{data.helpText.socials}</div>
+            ],
+            [
+              <div>{"'cls'"}</div>,
+              <div>Clear the screen</div>
+            ],
+            [
+              <div>{"'whoami'"}</div>,
+              <div>Retrieve user name and group info</div>
+            ],
+            [
+              <div>{"'echo'"}</div>,
+              <div>Display text, for example 'echo message'</div>
+            ],
+            [
+              <div>{"'reboot'"}</div>,
+              <div>Reboot the computer</div>
+            ],
+            [
+              <div>{"'chdir'"}</div>,
+              <div>Display the drive and folder that you are in</div>
+            ],
+            [
+              <div>{"'dir'"}</div>,
+              <div>List files and folders inside the folder that you are in</div>
+            ],
           ]
         }
       />
       <br/>
-      <div>{"Other commands:"}</div>
-      <div>
+      {/* <span>{"Other commands: "}</span>
+      <span>
         {"\t"}
         {data.commands.map((command, i) => {
           return (
-            (!(["help", "about", "projects", "social_media"].includes(command)))
+            (!(["help", "about", "projects", "socials"].includes(command)))
             ? <span key={i}>{command}{' '}</span>
             : null
           )
         })}
-      </div>
+      </span> */}
     </div>
   );
 };
@@ -173,7 +204,7 @@ export const AboutText = () => {
             {"Siklab"}
           </Link>{", "}
           <Link url={"https://www.instagram.com/uxsocietyph/"}>
-            {"User Experience Society, "}
+            {"User Experience Society"}
           </Link>{", and "}
           <Link url={"https://www.instagram.com/hackumbc/"}>
             {"hackUMBC"}
@@ -203,7 +234,7 @@ export const ProjectsText = () => {
         <span style={{ color : "cyan" }}>{"projects"}</span>
         <br/><br/>
       </div>
-      <Grid 
+      {/* <Grid 
         colWidth={"50%"}
         data={
           [
@@ -240,8 +271,8 @@ export const ProjectsText = () => {
             ]
           ]
         }
-      />
-      <Delayed waitBeforeShow={multiplier * speaker1.length}>
+      /> */}
+      <Delayed waitBeforeShow={multiplier * 0}>
         <div style={{ color : "yellowgreen" }}>{"Sage says:"}</div>
         {speaker2.map((character, i) => {
           return (
@@ -252,31 +283,41 @@ export const ProjectsText = () => {
         })}
         <Delayed waitBeforeShow={multiplier * speaker2.length}>
           <div>
-            {"You can check them out on my "}
+            {"For a complete list of projects, visit my "}
             <Link url={"https://github.com/sagerg"}>
               {"GitHub"}
             </Link>
           </div>
           <br/>
           <div>
-            {"Some of my most notable ones include: "}
+            {"Here are some of my personal favorites: "}
             <div>
+              {"This "}
+              <Link url={"https://github.com/sagerg/portfolio"}>
+                {"website"}
+              </Link>
+              {" made with React, Jest, GitHub actions, and GitHub pages"}
+            </div>
+            <div>
+              {"A "}
               <Link url={"https://github.com/ZhihongPang/Pokemon530"}>
-                {"a Pokemon GO clone"}
+                {"Pokemon GO Clone"}
               </Link>
-              {" made with Django, PostgreSQL, and Heroku"}
+              {" made with Django, DRF, PostgreSQL, and Heroku"}
             </div>
             <div>
+              {"A "}
               <Link url="https://github.com/sagerg/connect-four-design">
-                {"a connect four program"}
+                {"Connect Four Game"}
               </Link>
-              {" made with Python"}
+              {" made with PyGame and Minimax with Alpha-beta pruning"}
             </div>
             <div>
+              {"A "}
               <Link url="https://github.com/sagerg/cmd-line-tools#password-manager">
-                {"a password manager"}
+                {"Password Manager"}
               </Link>
-              {" made with C++ to encrypt and manage passwords"}
+              {" made with C++ and Vigenère cipher for encryption"}
             </div>
           </div>
         </Delayed>
@@ -294,7 +335,7 @@ export const SocialMediaText = () => {
   return (
     <div>
       <div>
-        <span style={{ color : "cyan" }}>{"social_media"}</span>
+        <span style={{ color : "cyan" }}>{"socials"}</span>
         <br/><br/>
       </div>
       <div style={{ color : "yellowgreen" }}>{"Sage says:"}</div>
@@ -311,16 +352,15 @@ export const SocialMediaText = () => {
           .entries(socialMediaAccounts)
           .map(([socialMediaKey, urlValue], i) => {
             return (
-              <span key={i}>
+              <div key={i}>
                 <Link url={urlValue}>
                   {socialMediaKey}
                 </Link>
-                {" "}
-              </span>
+              </div>
             );
         })}
       </Delayed>
-      <br/>
+      {/* <br/>
       <Delayed waitBeforeShow={multiplier * (speaker1.length + 1)}>
         <Grid 
           colWidth={"50%"}
@@ -360,7 +400,7 @@ export const SocialMediaText = () => {
             ]
           }
         />
-      </Delayed>
+      </Delayed> */}
     </div>
   );
 };

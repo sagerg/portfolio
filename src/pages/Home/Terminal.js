@@ -30,7 +30,7 @@ const Terminal = ({ user, isLoading, setLoading }) => {
     let component = undefined;
     switch (trimmedInput) {
       case "help":
-        component = <HelpText/>;
+        component = <HelpText user={user} />;
         break;
       case "about":
         component = <AboutText/>;
@@ -38,7 +38,7 @@ const Terminal = ({ user, isLoading, setLoading }) => {
       case "projects":
         component = <ProjectsText/>;
         break;
-      case "social_media":
+      case "socials":
         component = <SocialMediaText/>;
         break;
       default:
@@ -72,7 +72,7 @@ const Terminal = ({ user, isLoading, setLoading }) => {
 
           /* commands that handles actions go here */
 
-          case "clear":
+          case "cls":
             newHistory = [];
             break;
           case "whoami":
@@ -80,15 +80,26 @@ const Terminal = ({ user, isLoading, setLoading }) => {
               <span className="highlighted-text">{user}</span>
             );
             break;
-          case "pwd":
+          case "cd":
+          case "chdir":
             output = (
-              <span>{"/Users/"}{user}</span>
+              <span>{`C:\\Users\\${user}`}</span>
             );
             break;
-          case "ls":
+          case "dir":
             output = (
               <span>
-                {"BongoCat.txt    .DS_Store    .npm    .ssh"}
+                {`
+                  Volume in drive C has no label.
+                  Volume Serial Number is 6X9X-4X20
+
+                  Directory of C:\\
+
+                  11/15/1996\t\t02:50\tPM\t\t\t<DIR>\t\t\t\t\t.
+                  11/18/1996\t\t02:50\tPM\t\t\t<DIR>\t\t\t\t\t..
+                  05/23/1997\t\t01:38\tPM\t\t\t\t\t\t\t12\t\tBongoCat.txt
+                  07/12/1997\t\t10:47\tPM\t\t\t\t\t\t\t34\t\ttest.ini
+                `}
               </span>
             );
             break;
@@ -155,7 +166,7 @@ const Terminal = ({ user, isLoading, setLoading }) => {
   }, [isLoading]);
 
   useEffect(() => {
-    setTerminalHistory([<LoginText/>, <IntroText/>]);
+    setTerminalHistory([<LoginText/>, <IntroText user={user}/>]);
   }, []);
 
   return (

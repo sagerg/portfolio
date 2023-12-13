@@ -1,19 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import {
     AppBar,
     Button,
+    Frame,
     MenuList,
     MenuListItem,
     Separator,
     styleReset,
+    Table,
+    TableRow,
+    TableHead,
+    TableHeadCell,
+    TableDataCell,
+    TableBody,
     TextInput,
     Toolbar,
-    Tooltip,
     Window,
     WindowContent,
     WindowHeader,
 } from 'react95';
+import Clock from 'react-live-clock';
 
 /* Pick a theme of your choice */
 import original from 'react95/dist/themes/original';
@@ -24,7 +31,7 @@ import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
 
 import "../../assets/windows.css";
 
-import windowsLogo from '../../assets/windowsLogo.jpg';
+// import windowsLogo from '../../assets/windowsLogo.jpg';
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -47,23 +54,116 @@ const GlobalStyles = createGlobalStyle`
 
 const WindowsWrapper = ({ children }) => {
   const [open, setOpen] = useState(false);
+  const [isDisabled, setDisabled] = useState(false);
+  const [isTerminalOpen, setTerminalOpen] = useState(true);
+  const [isFrameOpen, setFrameOpen] = useState(false);
 
   return (
     <div>
-    <GlobalStyles />
-      <ThemeProvider theme={original}>
+        <GlobalStyles />
+        <ThemeProvider theme={original}>
             <div className="desktop">
-                <Window className='window'>
-                    <WindowHeader className='window-title'>
-                        <span>C:\WINDOWS\system32\cmd.exe</span>
-                        <Button>
-                            <span className='close-icon' />
-                        </Button>
-                    </WindowHeader>
-                    <WindowContent>
-                        {children}
-                    </WindowContent>
-                </Window>
+
+                {isTerminalOpen &&(
+                    <Window disabled={isDisabled} className='window'>
+                        <WindowHeader className='window-title'>
+                            <span>C:\WINDOWS\system32\cmd.exe</span>
+                            <Button onClick={() => setTerminalOpen(false)}>
+                                <span className='close-icon' />
+                            </Button>
+                        </WindowHeader>
+                        <WindowContent>
+                            {children}
+                        </WindowContent>
+                    </Window>
+                )}
+
+                <div className="icons-wrapper" style={{ float : "right" }}>
+                    <div className="icons">
+                        <a href="#" onClick={() => setTerminalOpen(true)}>🖥️</a>
+                    </div>
+                    <div>cmd</div>
+                    <div className="icons">
+                       <a href="#" onClick={() => setFrameOpen(true)}>🕹️</a>
+                    </div>
+                    <div>Games</div>
+                    <div className="icons">
+                        <a href="https://youtu.be/dQw4w9WgXcQ?si=Ta9bpAuWtqVhpPGW" target="_blank">🌐</a>    
+                    </div>
+                    <div>Internet</div>
+                    <div className="icons">
+                        <a href="#">🗑️</a>
+                    </div>
+                    <div>Trash</div>
+                    <div className="icons">
+                        <a href="#">📠</a>
+                    </div>
+                    <div>Fax</div>
+                    <div className="icons">
+                        <a href="#">💽</a>
+                    </div>
+                    <div>DVD</div>
+                    <div className="icons">
+                        <a href="#">📁</a>
+                    </div>
+                    <div>Projects</div>
+                    <div className="icons">
+                        <a href="#">📁</a>
+                    </div>
+                    <div>HWs</div>
+                </div>
+
+                {isFrameOpen && (
+                    <Window style={{ width: 320, top: 10, left: 10 }}>
+                        <WindowHeader className='window-title'>
+                            Pokedex.exe
+                            <Button onClick={() => setFrameOpen(false)} >
+                                <span className='close-icon' />
+                            </Button>
+                        </WindowHeader>
+                        <WindowContent>
+                        <Table>
+                            <TableHead>
+                            <TableRow>
+                                <TableHeadCell>Type</TableHeadCell>
+                                <TableHeadCell>Name</TableHeadCell>
+                                <TableHeadCell disabled>Level</TableHeadCell>
+                            </TableRow>
+                            </TableHead>
+                            <TableBody>
+                            <TableRow>
+                                <TableDataCell style={{ textAlign: 'center' }}>
+                                <span role='img' aria-label='LEAF'>
+                                    🌿
+                                </span>
+                                </TableDataCell>
+                                <TableDataCell>Bulbasaur</TableDataCell>
+                                <TableDataCell>64</TableDataCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableDataCell style={{ textAlign: 'center' }}>
+                                <span role='img' aria-label='fire'>
+                                    🔥
+                                </span>
+                                </TableDataCell>
+                                <TableDataCell>Charizard</TableDataCell>
+                                <TableDataCell>209</TableDataCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableDataCell style={{ textAlign: 'center' }}>
+                                <span role='img' aria-label='lightning'>
+                                    ⚡
+                                </span>
+                                </TableDataCell>
+                                <TableDataCell>Pikachu</TableDataCell>
+                                <TableDataCell>82</TableDataCell>
+                            </TableRow>
+                            </TableBody>
+                        </Table>
+                        </WindowContent>
+                    </Window>
+                )}
+
                 <div className="desktop-taskbar">
                     <AppBar position="inherit">
                         <Toolbar style={{ justifyContent: 'space-between' }}>
@@ -73,11 +173,12 @@ const WindowsWrapper = ({ children }) => {
                                     onClick={() => setOpen(!open)}
                                     active={open}
                                 >
-                                    <img
+                                    {/* <img
                                         src={windowsLogo}
                                         alt='Windows'
                                         style={{ height: '20px', marginRight: 4 }}
-                                    />
+                                    /> */}
+                                    💻
                                     Start
                                 </Button>
                                 
@@ -91,38 +192,44 @@ const WindowsWrapper = ({ children }) => {
                                     onClick={() => setOpen(false)}
                                     >
                                     <MenuListItem>
-                                        <span role='img' aria-label='👨‍💻'>
+                                        <span role='img' aria-label='👨‍💻' style={{ paddingRight : "10px" }}>
                                         👨‍💻
                                         </span>
                                         Profile
                                     </MenuListItem>
                                     <MenuListItem>
-                                        <span role='img' aria-label='📁'>
+                                        <span role='img' aria-label='📁' style={{ paddingRight : "10px" }}>
                                         📁
                                         </span>
                                         Documents
                                     </MenuListItem>
                                     <MenuListItem>
-                                        <span role='img' aria-label='🌎'>
-                                        🌎
+                                        <span role='img' aria-label='🌐' style={{ paddingRight : "10px" }}>
+                                        🌐
                                         </span>
-                                        <a href="https://unsplash.com/@mitifotos" target="_blank">Internet</a>
+                                        <a href="https://youtu.be/dQw4w9WgXcQ?si=Ta9bpAuWtqVhpPGW" target="_blank">Internet</a>
                                     </MenuListItem>
                                     <Separator />
                                     <MenuListItem disabled>
-                                        <span role='img' aria-label='🔙'>
+                                        <span role='img' aria-label='🔙' style={{ paddingRight : "10px" }}>
                                         🔙
                                         </span>
                                         Logout
                                     </MenuListItem>
                                     </MenuList>
-                                )}                            </div>
-                            <TextInput placeholder='Search...' width={150} />
+                                )}
+
+                                <TextInput style={{ display: 'inline-block', marginLeft : "3px" }} placeholder='Search...' width={150} />
+                            </div>
+                            <Frame className="clock" variant='field'>
+                                <span style={{ paddingRight : "5px" }}>🕰️</span>
+                                <Clock format={'HH:mm:ss A'} ticking={true} timezone={'US/Pacific'} />
+                            </Frame>
                         </Toolbar>
                     </AppBar>
-                </div>                
+                </div>
             </div>
-      </ThemeProvider>
+        </ThemeProvider>
     </div>
   )
 };
