@@ -3,14 +3,15 @@
     "help",
     "about",
     "projects",
-    "social_media",
-    "clear",
+    "socials",
+    "cls",
     "whoami",
     "echo",
     "reboot",
     "restart",
-    "pwd",
-    "ls"
+    "chdir",
+    "cd",
+    "dir"
   ],
   "funnyNames": [
     "Zoowee Blubberworth",
@@ -34,18 +35,35 @@
     "Sniffeenie Chewgold",
     "Fartbag Snotshine",
     "Eggpants Snothall",
-    "Dingbo Roachseed"
+    "Dingbo Roachseed",
+    "Weefy Messyhair",
+    "Bushbee Roachbottom",
+    "Binzy Toothill",
+    "Snoowee Roachkins",
+    "Snoobag Moonworthy",
+    "Wormzy Goatfish",
+    "Binbag Boomhall",
+    "Fuzzspitz Roachman",
+    "Bittyeenie Spottyface",
+    "Eggaboo Swampson",
+    "Burster Fudgeeye",
+    "Gumroid Boogershine",
+    "Wheeby Noseworthy",
+    "Farteenie Goatton",
+    "Hickeenie Fudgehall",
+    "Wormwax Woolkins",
+    "Peaeenie Roachface",
+    "Hick-a-boo Hooperman",
+    "Shoomoo Hippyhill"
   ],
   "bootSequence": [
-    "Client status is currently offline...",
-    "[default_protocol_enabled] ssh to web server with ip addr 127.0.0.1",
-    "PMAP: PCID enabled",
-    "Sage's Kernel Version 1.0.0: date=",
+    "Starting Operating System on date=",
     "Logging in as user=",
-    "Unpacking About.tar.gz...",
-    "Unzipping Projects.zip...",
-    "Parsing SocialMedia.csv...",
-    "Loading BongoCat.txt...",
+    "Loading Presets",
+    "Loading BOOTMGR",
+    "Loading WINLOAD.EXE",
+    "Loading CHKDSK.EXE",
+    "Loading CONFIG.SYS",
     "",
     "[OSBoot1]",
     "[OSBoot2]",
@@ -88,23 +106,23 @@
     "source": "https://copypastatext.com/bongo-cat-ascii/"
   },
   "helpText": {
-    "help": "\tshow all commands allowed for this user",
-    "about": "\tgive a brief description of my owner",
-    "projects": "\tstuff",
-    "social_media": "\tlist my owner's instagram and stuff"
+    "help": "Show all commands allowed for this user",
+    "about": "Give a brief description of Sage",
+    "projects": "List fun and notable projects made",
+    "socials": "List Instagram and other various social media accounts"
   },
   "introSpiel": {
-    "fromSpeaker1": "Oh, hi there ... Looks like something on the client side broke ... (｡•́︿•̀｡)՞\nThat's what I get for pushing to production on a Friday night\nGuess you'll have to use this terminal for now\nLucky for you, I made this environment user-friendly\nGo ahead and take a look around for now while I fix some stuff ~ !"
+    "fromSpeaker1": "Oh, hi there ... Looks like something on the client side broke ... (｡•́︿•̀｡)՞\nThat's what I get for pushing to production on a Friday night\nGuess you'll have to use the cmd line for now\nLucky for you, I made this environment user-friendly\nGo ahead and take a look around for now while I fix some stuff ~ !"
   },
   "aboutSpiel": {
-    "fromSpeaker1": "Hi, welcome to my page\nMy name is Sage ... ヾ(＾∇＾)\nI graduated with a bachelor's degree in computer science in 2022\nAnd I started working as a software engineer right after ... (⁰ ◕〜◕ ⁰)\nI work on building user interfaces, APIs, CI/CD pipelines, KTLO tools, design docs, documentation, etc"
+    "fromSpeaker1": "Hi, welcome to my 'computer'\nMy name is Sage ... ヾ(＾∇＾)\nI graduated with a bachelor's degree in computer science in 2022\nAnd I started working as a software engineer right after ... (⁰ ◕〜◕ ⁰)\nI work on building awesome User Interfaces (UI/UX), Scalable Backend systems,\nReliable CI/CD Pipelines, KTLO management software (Infra Ops),\nDocumentation, etc"
   },
   "projectSpiel": {
     "fromSpeaker1": "He doesn't have time for projects ?? (╯°□°）╯\nWe need to get the client up and running !!",
-    "fromSpeaker2": "...\n\nI don't have any super cool open source stuff published (yet)\nI do have some personal projects that I've made over the years ... (ᴗᵔᴥᵔ)\nMostly written in JavaScript, React, Python, or C++"
+    "fromSpeaker2": "Here are some stuff I've developed in the past ... (ᴗᵔᴥᵔ)\nMostly written in JavaScript, React, Python, or C++"
   },
   "socialSpiel": {
-    "fromSpeaker1": "I'll list the ones I use the most here ... ꒰ · ◡ · ꒱",
+    "fromSpeaker1": "I'll list the ones I use the most here\nLet me know if you want to chat or connect\nFor professional inquiries the best way to reach me is via email",
     "fromSpeaker2": "Wait ... Can you guys follow my VSCO too. I just made one!"
   }
 }
