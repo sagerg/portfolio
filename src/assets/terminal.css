@@ -1,10 +1,15 @@
 .terminal-wrapper {
   background-color: #151515;
   color: #fff;
-  height: 100vh;
+  /* height: 100vh; */
   padding: 1rem;
-  box-sizing: border-box;
-  overflow: auto;
+  /* box-sizing: border-box; */
+  /* overflow: auto; */
+  margin: auto;
+  /* width: 95%; */
+  height: 435px; 
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 .terminal-input {

@@ -10,12 +10,11 @@ import data from "../../data/data.json";
 export const Prompt = ({ user, input = undefined }) => {
   return (
     <>
+      <span>C:\Users\</span>
       <span data-testid="prompt-test" className="highlighted-text">
         {user}
       </span>
-      <span>
-        {"@Sages-MacBook-Pro ~ % "}
-      </span>
+      {"> "}
       <span>{input}</span>
     </>
   )
@@ -52,7 +51,7 @@ export const IntroText = () => {
                   </Delayed>
                 </>
               ),
-              <>
+              <div style={{ marginRight : "5px" }}>
                 {
                   getRandomItemFrom(
                     [
@@ -67,7 +66,7 @@ export const IntroText = () => {
                     )
                   })
                 }
-              </>
+              </div>
             ]
           ]
         }

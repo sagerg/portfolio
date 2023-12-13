@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import Loader from "../../components/ui/Loader";
 import Terminal from "./Terminal";
+import WindowsWrapper from "../../components/ui/WindowsWrapper";
 
 import { UserContext } from "../../context/UserContext";
 
@@ -15,11 +16,15 @@ const Home = () => {
         isLoading={isLoading}
         setLoading={setLoading}
       />
-      <Terminal 
-        user={user}
-        isLoading={isLoading}
-        setLoading={setLoading}
-      />
+      {!isLoading &&
+        <WindowsWrapper>
+          <Terminal 
+            user={user}
+            isLoading={isLoading}
+            setLoading={setLoading}
+          />
+        </WindowsWrapper>
+      }
     </div>
   );
 };
