@@ -107,7 +107,7 @@
   },
   "helpText": {
     "help": "Show all commands allowed for this user",
-    "about": "Give a brief description of Sage",
+    "about": "Give a brief description about me",
     "projects": "List fun and notable projects made",
     "socials": "List Instagram and other various social media accounts"
   },
@@ -115,11 +115,11 @@
     "fromSpeaker1": "Oh, hi there ... Looks like something on the client side broke ... (｡•́︿•̀｡)՞\nThat's what I get for pushing to production on a Friday night\nGuess you'll have to use the cmd line for now\nLucky for you, I made this environment user-friendly\nGo ahead and take a look around for now while I fix some stuff ~ !"
   },
   "aboutSpiel": {
-    "fromSpeaker1": "Hi, welcome to my 'computer'\nMy name is Sage ... ヾ(＾∇＾)\nI graduated with a bachelor's degree in computer science in 2022\nAnd I started working as a software engineer right after ... (⁰ ◕〜◕ ⁰)\nI work on building awesome User Interfaces (UI/UX), Scalable Backend systems,\nReliable CI/CD Pipelines, KTLO management software (Infra Ops),\nDocumentation, etc"
+    "fromSpeaker1": "Hi, welcome to my 'computer'\nMy name is Sage ... ヾ(＾∇＾)\nI build Accessible User Interfaces (UI/UX), Scalable Backend Systems,\nMaintainable Infrastructure Management Software (think KTLO),\nand the most important of them all: Automated Testing Pipelines"
   },
   "projectSpiel": {
     "fromSpeaker1": "He doesn't have time for projects ?? (╯°□°）╯\nWe need to get the client up and running !!",
-    "fromSpeaker2": "Here are some stuff I've developed in the past ... (ᴗᵔᴥᵔ)\nMostly written in JavaScript, React, Python, or C++"
+    "fromSpeaker2": "Here are some stuff I've developed in the past\nMostly written in JS, React, Python, or C++"
   },
   "socialSpiel": {
     "fromSpeaker1": "I'll list the ones I use the most here\nLet me know if you want to chat or connect\nFor professional inquiries the best way to reach me is via email",

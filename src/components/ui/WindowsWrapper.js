@@ -79,38 +79,38 @@ const WindowsWrapper = ({ children }) => {
                 )}
 
                 <div className="icons-wrapper" style={{ float : "right" }}>
-                    <div className="icons">
+                    <div className="icons" role='img' aria-label='PC'>
                         <a href="#" onClick={() => setTerminalOpen(true)}>🖥️</a>
                     </div>
-                    <div>cmd</div>
-                    <div className="icons">
+                    <div style={{ textAlign: "center" }}>cmd</div>
+                    <div className="icons" role='img' aria-label='JOYSTICK'>
                        <a href="#" onClick={() => setFrameOpen(true)}>🕹️</a>
                     </div>
-                    <div>Games</div>
-                    <div className="icons">
+                    <div style={{ textAlign: "center" }}>Games</div>
+                    <div className="icons" role='img' aria-label='GLOBE'>
                         <a href="https://youtu.be/dQw4w9WgXcQ?si=Ta9bpAuWtqVhpPGW" target="_blank">🌐</a>    
                     </div>
-                    <div>Internet</div>
-                    <div className="icons">
+                    <div style={{ textAlign: "center" }}>Internet</div>
+                    <div className="icons" role='img' aria-label='TRASH'>
                         <a href="#">🗑️</a>
                     </div>
-                    <div>Trash</div>
-                    <div className="icons">
+                    <div style={{ textAlign: "center" }}>Trash</div>
+                    <div className="icons" role='img' aria-label='FAX'>
                         <a href="#">📠</a>
                     </div>
-                    <div>Fax</div>
-                    <div className="icons">
+                    <div style={{ textAlign: "center" }}>Fax</div>
+                    <div className="icons" role='img' aria-label='CD'>
                         <a href="#">💽</a>
                     </div>
-                    <div>DVD</div>
-                    <div className="icons">
+                    <div style={{ textAlign: "center" }}>DVD</div>
+                    <div className="icons" role='img' aria-label='FOLDER'>
+                        <a href="https://github.com/sagerg" target="_blank">📁</a>
+                    </div>
+                    <div style={{ textAlign: "center" }}>Projects</div>
+                    <div className="icons" role='img' aria-label='FOLDER'>
                         <a href="#">📁</a>
                     </div>
-                    <div>Projects</div>
-                    <div className="icons">
-                        <a href="#">📁</a>
-                    </div>
-                    <div>HWs</div>
+                    <div style={{ textAlign: "center" }}>HWs</div>
                 </div>
 
                 {isFrameOpen && (
@@ -192,26 +192,32 @@ const WindowsWrapper = ({ children }) => {
                                     onClick={() => setOpen(false)}
                                     >
                                     <MenuListItem>
-                                        <span role='img' aria-label='👨‍💻' style={{ paddingRight : "10px" }}>
-                                        👨‍💻
+                                        <span role='img' aria-label='👤'>
+                                        👤
                                         </span>
-                                        Profile
+                                        <a href="https://www.linkedin.com/in/sagegarcia/" target="_blank">Profile</a>
                                     </MenuListItem>
                                     <MenuListItem>
-                                        <span role='img' aria-label='📁' style={{ paddingRight : "10px" }}>
+                                        <span role='img' aria-label='📁'>
                                         📁
                                         </span>
-                                        Documents
+                                        <a href="https://github.com/sagerg" target="_blank">Projects</a>
                                     </MenuListItem>
                                     <MenuListItem>
-                                        <span role='img' aria-label='🌐' style={{ paddingRight : "10px" }}>
+                                        <span role='img' aria-label='🌐'>
                                         🌐
                                         </span>
                                         <a href="https://youtu.be/dQw4w9WgXcQ?si=Ta9bpAuWtqVhpPGW" target="_blank">Internet</a>
                                     </MenuListItem>
                                     <Separator />
+                                    <MenuListItem onClick={() => window.location.reload()}>
+                                        <span role='img' aria-label='🔄'>
+                                        🔄
+                                        </span>
+                                        <a href="#">Restart</a>
+                                    </MenuListItem>
                                     <MenuListItem disabled>
-                                        <span role='img' aria-label='🔙' style={{ paddingRight : "10px" }}>
+                                        <span role='img' aria-label='🔙'>
                                         🔙
                                         </span>
                                         Logout

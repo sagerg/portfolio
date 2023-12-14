@@ -1,5 +1,5 @@
 import React , { useEffect, useState, useRef } from "react";
-import Cursor from "../../components/ui/Cursor"
+import Cursor from "./Cursor"
 import { 
   Prompt,
   IntroText,
@@ -9,13 +9,13 @@ import {
   AboutText,
   ProjectsText,
   SocialMediaText
-} from "../../components/ui/CommandOutputs";
+} from "./CommandOutputs";
 
 import "../../assets/terminal.css"
 
 import data from "../../data/data.json";
 
-const Terminal = ({ user, isLoading, setLoading }) => {
+const Terminal = ({ user, isLoading }) => {
   const [terminalHistory, setTerminalHistory] = useState([]);
   const [input, setInput] = useState("");
   const inputRef = useRef();
@@ -140,7 +140,7 @@ const Terminal = ({ user, isLoading, setLoading }) => {
   };
 
   const handleScrollToInput = () => {
-    if (!isLoading && inputRef.current !== undefined) {
+    if (inputRef.current !== undefined) {
       setTimeout(() => inputRef.current.scrollIntoView(), 0);
     }
   };
@@ -160,10 +160,8 @@ const Terminal = ({ user, isLoading, setLoading }) => {
   };
 
   useEffect(() => {
-    if (!isLoading) {
-      inputRef.current.focus();
-    }
-  }, [isLoading]);
+    inputRef.current.focus();
+  }, []);
 
   useEffect(() => {
     setTerminalHistory([<LoginText/>, <IntroText user={user}/>]);
@@ -171,34 +169,32 @@ const Terminal = ({ user, isLoading, setLoading }) => {
 
   return (
     <div data-testid="terminal-test">
-      {!isLoading &&
-        <div 
-          className="terminal-wrapper"
-          onClick={() => inputRef.current.focus()}
-        >
-          <div className="terminal">
-            {terminalHistory.map((text, index) => (
-              <div key={index}>
-                {text}
-              </div>
-            ))}
-          </div>
-          <div>
-            <Prompt user={user}/>
-            <input
-              autoFocus
-              ref={inputRef}
-              className="terminal-input" 
-              type="text"
-              style={{"width" : getTextWidth(input)}}
-              value={input}
-              onChange={handleInputOnChange}
-              onKeyDown={handleOnKeyDown}
-            />
-            <Cursor />
-          </div>
+      <div 
+        className="terminal-wrapper"
+        onClick={() => inputRef.current.focus()}
+      >
+        <div className="terminal">
+          {terminalHistory.map((text, index) => (
+            <div key={index}>
+              {text}
+            </div>
+          ))}
         </div>
-      }
+        <div>
+          <Prompt user={user}/>
+          <input
+            autoFocus
+            ref={inputRef}
+            className="terminal-input" 
+            type="text"
+            style={{"width" : getTextWidth(input)}}
+            value={input}
+            onChange={handleInputOnChange}
+            onKeyDown={handleOnKeyDown}
+          />
+          <Cursor />
+        </div>
+      </div>
     </div>
   );
 };
