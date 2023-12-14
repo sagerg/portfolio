@@ -10,7 +10,7 @@ import "../../assets/terminal.css";
 
 import data from "../../data/data.json";
 
-const Loader = ({ user, isLoading, setLoading }) => {
+const Loader = ({ user, setLoading }) => {
   const multiplier = 500;
   const dateIdentifier = "date";
   const userIdentifier = "user";
@@ -40,60 +40,58 @@ const Loader = ({ user, isLoading, setLoading }) => {
 
   return (
     <div data-testid="loader-test">
-      {isLoading &&
-        <div className="loader">
-          <PacmanLoader
-            color={"yellow"}
-            size={10}
-            aria-label="Loading Spinner"
-          />
-          {bootSequence.map((text, i) => {
-            if (text === "") {
-              return (
-                <Delayed key={i} waitBeforeShow={multiplier * i}>
-                  <br/>
-                </Delayed>
-              );
-            } else if (text.includes(dateIdentifier)) {
-              return (
-                <Delayed key={i} waitBeforeShow={multiplier * i}>
-                  <p>
-                    <span>{text}</span>
-                    <span style={{ color : "cyan" }}>{(new Date()).toUTCString()}</span>
-                  </p>
-                </Delayed>
-              );
-            } else if (text.includes(userIdentifier)) {
-              return (
-                <Delayed key={i} waitBeforeShow={multiplier * i}>
-                  <p>
-                    <span>{text}</span>
-                    <span className="highlighted-text">{user}</span>
-                  </p>
-                </Delayed>
-              );
-            } else {
-              return (
-                <Delayed key={i} waitBeforeShow={multiplier * i}>
-                  <p>{text}</p>
-                </Delayed>
-              );
-            }
-          })}
-          <Delayed waitBeforeShow={loadDuration}>
-            <span>{"PRESS "}</span>
-            <Link url="#" opensOnNewTab={false} onClick={() => setLoading(false)}>{"ENTER"}</Link>
-            <span>{" TO CONTINUE"}</span>
-            <Cursor />
-            <br /><br />
-          </Delayed>
-          <PulseLoader
-            color={"yellow"}
-            size={10}
-            aria-label="Loading Spinner"
-          />
-        </div>
-      }
+      <div className="loader">
+        <PacmanLoader
+          color={"yellow"}
+          size={10}
+          aria-label="Loading Spinner"
+        />
+        {bootSequence.map((text, i) => {
+          if (text === "") {
+            return (
+              <Delayed key={i} waitBeforeShow={multiplier * i}>
+                <br/>
+              </Delayed>
+            );
+          } else if (text.includes(dateIdentifier)) {
+            return (
+              <Delayed key={i} waitBeforeShow={multiplier * i}>
+                <p>
+                  <span>{text}</span>
+                  <span style={{ color : "cyan" }}>{(new Date()).toUTCString()}</span>
+                </p>
+              </Delayed>
+            );
+          } else if (text.includes(userIdentifier)) {
+            return (
+              <Delayed key={i} waitBeforeShow={multiplier * i}>
+                <p>
+                  <span>{text}</span>
+                  <span className="highlighted-text">{user}</span>
+                </p>
+              </Delayed>
+            );
+          } else {
+            return (
+              <Delayed key={i} waitBeforeShow={multiplier * i}>
+                <p>{text}</p>
+              </Delayed>
+            );
+          }
+        })}
+        <Delayed waitBeforeShow={loadDuration}>
+          <span>{"PRESS "}</span>
+          <Link url="#" opensOnNewTab={false} onClick={() => setLoading(false)}>{"ENTER"}</Link>
+          <span>{" TO CONTINUE"}</span>
+          <Cursor />
+          <br /><br />
+        </Delayed>
+        <PulseLoader
+          color={"yellow"}
+          size={10}
+          aria-label="Loading Spinner"
+        />
+      </div>
     </div>
   );
 };

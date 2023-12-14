@@ -290,7 +290,6 @@ export const ProjectsText = () => {
           </div>
           <br/>
           <div>
-            {"Here are some of my personal favorites: "}
             <div>
               {"This "}
               <Link url={"https://github.com/sagerg/portfolio"}>
@@ -314,10 +313,10 @@ export const ProjectsText = () => {
             </div>
             <div>
               {"A "}
-              <Link url="https://github.com/sagerg/cmd-line-tools#password-manager">
-                {"Password Manager"}
+              <Link url="https://github.com/sagerg/path-finding">
+                {"Path Finding Script"}
               </Link>
-              {" made with C++ and Vigenère cipher for encryption"}
+              {" that uses Depth-first search to find a path in a maze"}
             </div>
           </div>
         </Delayed>

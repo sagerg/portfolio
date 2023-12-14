@@ -41,8 +41,15 @@
 }
 
 .icons {
-  font-size: 30px;  
+  font-size: 30px; 
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
+.icons:hover {
+  border-radius: 5px;
+  background:rgba(128, 223, 237, 0.5);
+} 
 
 .close-icon {
     display: inline-block;
