@@ -115,7 +115,7 @@
     "fromSpeaker1": "Oh, hi there ... Looks like something on the client side broke ... (｡•́︿•̀｡)՞\nThat's what I get for pushing to production on a Friday night\nGuess you'll have to use the cmd line for now\nLucky for you, I made this environment user-friendly\nGo ahead and take a look around for now while I fix some stuff ~ !"
   },
   "aboutSpiel": {
-    "fromSpeaker1": "Hi, welcome to my 'computer'\nMy name is Sage ... ヾ(＾∇＾)\nI build Accessible User Interfaces (UI/UX), Scalable Backend Systems,\nMaintainable Infrastructure Management Software (think KTLO),\nand the most important of them all: Automated Testing Pipelines"
+    "fromSpeaker1": "Welcome, digital trespasser! You've successfully broken into Sage's computer—home to...\na crypto portfolio worth $3.27,\na staggering collection of abandoned side projects,\na folder named 'Important Stuff' (which contains absolutely nothing important),\nand a 'Resume_Final_2021(REAL).docx' file that he's still using to apply for jobs.\n\nHere are some actual data points about me:\n* I occasionally hike, run, ski, and exercise\n* r/WSB is my financial advisor—they've let me down many times\n* Sometimes I code for large tech companies if I need rent money"
   },
   "projectSpiel": {
     "fromSpeaker1": "He doesn't have time for projects ?? (╯°□°）╯\nWe need to get the client up and running !!",

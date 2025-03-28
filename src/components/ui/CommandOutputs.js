@@ -199,7 +199,7 @@ export const AboutText = () => {
       </div>
       <Delayed waitBeforeShow={multiplier * speaker1.length}>
         <div>
-          {"I've volunteered in organizations like "}
+          {"I've been a part of some amazing organizations in the past like "}
           <Link url={"https://twitter.com/siklab_org"}>
             {"Siklab"}
           </Link>{", "}
@@ -208,14 +208,6 @@ export const AboutText = () => {
           </Link>{", and "}
           <Link url={"https://www.instagram.com/hackumbc/"}>
             {"hackUMBC"}
-          </Link>
-          <br/>
-          {"And I've written software for places like "}
-          <Link url="https://www.jpmorganchase.com/">
-            {"JPMorgan Chase & Co."}
-          </Link>{" and "}
-          <Link url="https://www.oracle.com/">
-            {"Oracle"}
           </Link>
         </div>
       </Delayed>
